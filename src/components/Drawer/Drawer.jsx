@@ -15,40 +15,40 @@ const Drawer = ({ onClose, items, onDelete }) => {
           />
         </h2>
 
-        {
-          items.length > 0 ?         
+        {items.length > 0 ? (
           <div className="items">
-          {items.map((el) => (
-            <div key={el.id} className="cartItem d-flex align-center mb-20">
-              <div
-                style={{ backgroundImage: `url(${el.imageUrl})` }}
-                className="cartItemImg"
-              ></div>
-              <div className="mr-20 flex">
-                <p className="mb-5">{el.title}</p>
-                <b>{el.price} руб.</b>
-              </div>
-              <img className="removeBtn" onClick={() => onDelete(el.id)} src="/img/btn-remove.svg" alt="" />
-            </div>
-          ))}
-        </div> :
-
-                <div className="pusto1 d-flex justify-center">
-                <div className="pusto">
-                  <img src="/img/pusto.png" alt="" />
-                  <h2>Корзина пустая</h2>
-                  <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
-      
-                  <button onClick={onClose} className="greenButton">
-                  <img src="/img/left.png" alt="" />      Вернуться назад 
-                </button>
+            {items.map((el) => (
+              <div key={el.id} className="cartItem d-flex align-center mb-20">
+                <div
+                  style={{ backgroundImage: `url(${el.imageUrl})` }}
+                  className="cartItemImg"
+                ></div>
+                <div className="mr-20 flex">
+                  <p className="mb-5">{el.title}</p>
+                  <b>{el.price} руб.</b>
                 </div>
+                <img
+                  className="removeBtn"
+                  onClick={() => onDelete(el.id)}
+                  src="/img/btn-remove.svg"
+                  alt=""
+                />
               </div>
-        
-        }
+            ))}
+          </div>
+        ) : (
+          <div className="pusto1 d-flex justify-center">
+            <div className="pusto">
+              <img src="/img/pusto.png" alt="" />
+              <h2>Корзина пустая</h2>
+              <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
 
-
-
+              <button onClick={onClose} className="greenButton">
+                <img src="/img/left.png" alt="" /> Вернуться назад
+              </button>
+            </div>
+          </div>
+        )}
 
         <div className="cart-total-block">
           <ul>
